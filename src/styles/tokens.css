@@ -1,0 +1,154 @@
+:root {
+  /* Neutral slate palette */
+  --color-slate-50: oklch(98.4% 0.003 247.858);
+  --color-slate-100: oklch(96.8% 0.007 247.896);
+  --color-slate-200: oklch(92.9% 0.013 255.508);
+  --color-slate-300: oklch(86.9% 0.022 252.894);
+  --color-slate-400: oklch(70.4% 0.04 256.788);
+  --color-slate-500: oklch(55.4% 0.046 257.417);
+  --color-slate-600: oklch(44.6% 0.043 257.281);
+  --color-slate-700: oklch(37.2% 0.044 257.287);
+  --color-slate-800: oklch(27.8% 0.041 260.031);
+  --color-slate-900: oklch(20.8% 0.042 265.755);
+  --color-slate-950: oklch(12.9% 0.042 264.695);
+
+  /* Amber/Gold accent - points currency */
+  --color-amber-50: oklch(97.9% 0.042 95.277);
+  --color-amber-100: oklch(96.2% 0.059 98.111);
+  --color-amber-200: oklch(92.4% 0.083 98.117);
+  --color-amber-300: oklch(88.1% 0.125 91.745);
+  --color-amber-400: oklch(82.8% 0.189 84.429);
+  --color-amber-500: oklch(76.9% 0.188 70.08);
+  --color-amber-600: oklch(66.6% 0.179 58.318);
+  --color-amber-700: oklch(55.5% 0.163 48.998);
+  --color-amber-800: oklch(47.3% 0.137 46.201);
+  --color-amber-900: oklch(40.8% 0.113 45.635);
+  --color-amber-950: oklch(27.9% 0.078 45.635);
+
+  /* Green - earned/confirmed */
+  --color-green-50: oklch(98.2% 0.018 155.826);
+  --color-green-500: oklch(72.3% 0.195 142.495);
+  --color-green-600: oklch(62.7% 0.194 149.214);
+  --color-green-700: oklch(52.7% 0.154 150.069);
+
+  /* Red - spent/reversed */
+  --color-red-50: oklch(97.1% 0.013 17.38);
+  --color-red-500: oklch(63.7% 0.237 25.331);
+  --color-red-600: oklch(57.7% 0.245 27.325);
+  --color-red-700: oklch(50.5% 0.213 27.518);
+
+  /* Semantic color mappings - Light mode default */
+  --background: var(--color-slate-50);
+  --foreground: var(--color-slate-900);
+  --card: var(--color-slate-50);
+  --card-foreground: var(--color-slate-900);
+  --popover: var(--color-slate-50);
+  --popover-foreground: var(--color-slate-900);
+  --primary: var(--color-amber-500);
+  --primary-foreground: var(--color-slate-950);
+  --secondary: var(--color-slate-200);
+  --secondary-foreground: var(--color-slate-700);
+  --muted: var(--color-slate-200);
+  --muted-foreground: var(--color-slate-500);
+  --accent: var(--color-amber-100);
+  --accent-foreground: var(--color-slate-900);
+  --destructive: var(--color-red-500);
+  --destructive-foreground: var(--color-slate-50);
+  --border: var(--color-slate-200);
+  --input: var(--color-slate-200);
+  --ring: var(--color-amber-500);
+
+  /* Points currency specific */
+  --points-available: var(--color-green-500);
+  --points-pending: var(--color-amber-500);
+  --points-spent: var(--color-red-500);
+
+  /* Chart colors */
+  --chart-1: var(--color-amber-500);
+  --chart-2: var(--color-green-500);
+  --chart-3: var(--color-slate-400);
+  --chart-4: var(--color-red-500);
+  --chart-5: var(--color-slate-600);
+
+  /* Border radius */
+  --radius: 0.625rem;
+}
+
+.dark {
+  /* Dark mode swaps */
+  --background: var(--color-slate-950);
+  --foreground: var(--color-slate-50);
+  --card: var(--color-slate-950);
+  --card-foreground: var(--color-slate-50);
+  --popover: var(--color-slate-950);
+  --popover-foreground: var(--color-slate-50);
+  --primary: var(--color-amber-500);
+  --primary-foreground: var(--color-slate-950);
+  --secondary: var(--color-slate-800);
+  --secondary-foreground: var(--color-slate-200);
+  --muted: var(--color-slate-800);
+  --muted-foreground: var(--color-slate-400);
+  --accent: var(--color-slate-800);
+  --accent-foreground: var(--color-slate-50);
+  --destructive: var(--color-red-500);
+  --destructive-foreground: var(--color-slate-50);
+  --border: var(--color-slate-800);
+  --input: var(--color-slate-800);
+  --ring: var(--color-amber-500);
+
+  /* Points currency specific */
+  --points-available: var(--color-green-500);
+  --points-pending: var(--color-amber-500);
+  --points-spent: var(--color-red-500);
+
+  /* Chart colors */
+  --chart-1: var(--color-amber-500);
+  --chart-2: var(--color-green-500);
+  --chart-3: var(--color-slate-400);
+  --chart-4: var(--color-red-500);
+  --chart-5: var(--color-slate-600);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-points-available: var(--points-available);
+  --color-points-pending: var(--points-pending);
+  --color-points-spent: var(--points-spent);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
