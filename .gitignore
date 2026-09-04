@@ -1,42 +1,42 @@
 ```
-# Compiled and build artifacts
-*.o
-*.obj
-dist/
-build/
-target/
-
 # Dependencies
 node_modules/
-.pnpm-store/
-.yarn/
-.yarn-cache/
 
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
+# Build artifacts
+dist/
+build/
+.next/
+out/
 
-# Environment
+# Environment variables
 .env
 .env.local
 .env.*
 
-# Editors
+# IDE files
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
+*.swp
+*.swo
 
-# TypeScript/JavaScript specific
-*.tsbuildinfo
-.next/
-.nuxt/
-dist/
-build/
+# Logs
+*.log
 
-# Coverage
+# Temporary files
+*.tmp
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Coverage reports
 coverage/
-.nyc_output/
+htmlcov/
+.coverage
+
+# System files
+.DS_Store
+Thumbs.db
 ```
