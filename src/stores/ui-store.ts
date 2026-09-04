@@ -56,10 +56,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Persist theme changes
-useUIStore.subscribe(
-  (state) => state.theme,
-  (theme) => {
-    localStorage.setItem('theme', theme);
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-  }
-);
+useUIStore.subscribe((state) => {
+  localStorage.setItem('theme', state.theme);
+  document.documentElement.classList.toggle('dark', state.theme === 'dark');
+});

@@ -3,7 +3,7 @@ import { z } from 'zod';
 // Create request form validation
 export const createRequestSchema = z.object({
   type: z.enum(['follow', 'like', 'comment'], {
-    required_error: 'Please select an action type',
+    message: 'Please select an action type',
   }),
   targetUrl: z
     .string()

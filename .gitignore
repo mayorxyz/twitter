@@ -1,52 +1,42 @@
 ```
-# Dependencies
-node_modules/
-
-# Build outputs
+# Compiled and build artifacts
+*.o
+*.obj
 dist/
 build/
-coverage/
+target/
 
-# Environment variables
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+.yarn-cache/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Environment
 .env
 .env.local
 .env.*
 
-# IDE and editor files
+# Editors
 .vscode/
 .idea/
-*.swp
-*.swo
-*.tmp
+*.sublime-project
+*.sublime-workspace
 
-# Logs
-*.log
+# TypeScript/JavaScript specific
+*.tsbuildinfo
+.next/
+.nuxt/
+dist/
+build/
 
-# Python cache (if any Python files exist in project)
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Testing
-.pytest_cache/
-.mypy_cache/
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Distribution / packaging
-*.tar.gz
-*.zip
-*.tar
-*.gz
-
-# Compiled JavaScript (Vite/React project)
-*.bundle.js
-*.chunk.js
-
-# Temporary files
-*.tmp
-*~
-```.next/
+# Coverage
+coverage/
+.nyc_output/
+```
