@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ForwardedRef } from 'react';
 
 const badgeVariants = cva(
   'inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
@@ -14,7 +15,6 @@ const badgeVariants = cva(
         destructive:
           'border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80',
         outline: 'text-foreground',
-        // Points/status variants
         success:
           'border-transparent bg-green-500 text-white shadow',
         pending:
@@ -33,15 +33,18 @@ export interface BadgeProps
   extends HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
-const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-  ({ className, variant, ...props }, ref) => (
+const Badge = (props: BadgeProps, ref: ForwardedRef<HTMLDivElement>) => {
+  const { className, variant, ...rest } = props;
+  return (
     <div
       ref={ref}
       className={cn(badgeVariants({ variant }), className)}
-      {...props}
+      {...rest}
     />
-  )
-);
+  );
+};
 Badge.displayName = 'Badge';
 
-export { Badge, badgeVariants };
+export const BadgeForwardRef = React.forwardRef(Badge);
+
+export { BadgeForwardRef as Badge, badgeVariants };

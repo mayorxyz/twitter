@@ -10,17 +10,20 @@ import { ArrowUpRight, ArrowDownRight, Hourglass, TrendingUp, Zap, Target } from
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { formatResetTime } from '@/lib/formatters'
 import { NavLink } from 'react-router-dom'
+import type { PointsSummary, LedgerEntry } from '@/types'
 
 export function Dashboard() {
-  const { available, pending, spent, totalEarned, isLoading: balanceLoading } = usePointsBalance()
+  const { data: pointsData, isLoading: balanceLoading } = usePointsBalance()
+  const pointsSummary = pointsData as PointsSummary | undefined
   const limits = useDailyLimits()
   const { data: ledger, isLoading: ledgerLoading } = useLedger({ limit: 5 })
+  const ledgerEntries = ledger as LedgerEntry[] | undefined
 
   // Prepare chart data from ledger
-  const chartData = (ledger || []).map(entry => ({
+  const chartData = (ledgerEntries || []).map(entry => ({
     date: new Date(entry.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }),
     points: entry.amount,
-    type: entry.action === 'EARN' ? 'earned' : 'spent'
+    type: entry.action === 'earn' ? 'earned' : 'spent'
   })).reverse()
 
   const earnedData = chartData.filter(d => d.type === 'earned')
@@ -44,7 +47,9 @@ export function Dashboard() {
             {balanceLoading ? (
               <Skeleton className="h-8 w-32" />
             ) : (
-              <PointsDisplay value={available} className="text-2xl font-bold text-green-500" />
+              <div className="text-2xl font-bold text-green-500 tabular-nums">
+                +{pointsSummary?.available ?? 0}
+              </div>
             )}
             <p className="text-xs text-muted-foreground mt-1">Ready to spend</p>
           </CardContent>

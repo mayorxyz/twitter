@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { cn } from '@/lib/utils';
 import type { LucideIcon } from 'lucide-react';
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ForwardedRef } from 'react';
 
 interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
   icon?: LucideIcon;
@@ -9,15 +10,16 @@ interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
   action?: React.ReactNode;
 }
 
-const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
-  ({ className, icon: Icon, title, description, action, ...props }, ref) => (
+const EmptyState = (props: EmptyStateProps, ref: ForwardedRef<HTMLDivElement>) => {
+  const { className, icon: Icon, title, description, action, ...rest } = props;
+  return (
     <div
       ref={ref}
       className={cn(
         'flex flex-col items-center justify-center gap-4 rounded-lg border border-dashed p-12 text-center',
         className
       )}
-      {...props}
+      {...rest}
     >
       {Icon && (
         <div className="rounded-full bg-muted p-3">
@@ -32,8 +34,9 @@ const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(
       </div>
       {action && <div className="mt-2">{action}</div>}
     </div>
-  )
-);
+  );
+};
 EmptyState.displayName = 'EmptyState';
+const EmptyStateForwardRef = React.forwardRef(EmptyState);
 
-export { EmptyState };
+export { EmptyStateForwardRef as EmptyState };
