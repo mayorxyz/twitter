@@ -6,6 +6,7 @@ interface PointsDisplayProps {
   className?: string
   variant?: 'default' | 'compact' | 'large'
   label?: string
+  prefix?: string
 }
 
 export function PointsDisplay({
@@ -13,6 +14,7 @@ export function PointsDisplay({
   className,
   variant = 'default',
   label,
+  prefix,
 }: PointsDisplayProps) {
   const formatted = formatPoints(Math.abs(value))
   
@@ -30,7 +32,7 @@ export function PointsDisplay({
           value >= 0 ? 'text-green-500' : 'text-red-500'
         )}
       >
-        {value >= 0 ? '+' : '-'}{formatted}
+        {prefix}{value >= 0 ? '+' : '-'}{formatted}
       </span>
     </div>
   )

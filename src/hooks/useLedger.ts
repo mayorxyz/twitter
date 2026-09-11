@@ -6,7 +6,7 @@ import type { LedgerEntry } from '@/types';
 export function useLedger(filters?: { page?: number; limit?: number; action?: string }) {
   return useQuery<LedgerEntry[]>({
     queryKey: queryKeys.ledger.list(filters),
-    queryFn: () => apiClient.getLedger(filters),
+    queryFn: () => apiClient.getLedger(filters) as Promise<LedgerEntry[]>,
     staleTime: 30 * 1000,
   });
 }

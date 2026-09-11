@@ -6,7 +6,7 @@ import type { Request } from '@/types'
 export function useMyRequests(status?: string) {
   return useQuery<Request[]>({
     queryKey: queryKeys.requests.myRequests(status),
-    queryFn: () => apiClient.getMyRequests(status),
+    queryFn: () => apiClient.getMyRequests(status) as Promise<Request[]>,
     staleTime: 30 * 1000,
   })
 }
