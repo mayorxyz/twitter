@@ -1,7 +1,6 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
 import { usePointsBalance } from '@/hooks/usePointsBalance'
-import { uiStore } from '@/stores/ui-store'
 import { PointsDisplay } from '@/components/ui/points-display'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
@@ -28,9 +27,13 @@ const NAV_LINKS = [
 
 export function Layout() {
   const { user, logout, isLoading } = useAuth()
-  const { available } = usePointsBalance()
+  const { data: balanceData } = usePointsBalance()
   const navigate = useNavigate()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  
+  const available = balanceData?.available ?? 0
+  const userHandle = (user as any)?.handle ?? ''
+  const userDisplayName = (user as any)?.displayName ?? ''
 
   const handleLogout = () => {
     if (window.confirm('Are you sure you want to sign out?')) {
@@ -46,6 +49,10 @@ export function Layout() {
       </div>
     )
   }
+
+  const userNode = user ? (
+    <span className="text-sm font-medium">{userHandle || 'User'}</span>
+  ) : null
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -91,7 +98,7 @@ export function Layout() {
                     </Button>
                   </NavLink>
                   <Avatar className="h-8 w-8 cursor-pointer" onClick={() => navigate('/profile')}>
-                    <AvatarFallback>{user.handle?.charAt(0).toUpperCase()}</AvatarFallback>
+                    <AvatarFallback>{userHandle?.charAt(0).toUpperCase()}</AvatarFallback>
                   </Avatar>
                   <Button variant="ghost" size="icon" onClick={handleLogout}>
                     <LogOut className="h-5 w-5" />

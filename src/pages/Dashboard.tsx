@@ -64,7 +64,9 @@ export function Dashboard() {
             {balanceLoading ? (
               <Skeleton className="h-8 w-32" />
             ) : (
-              <PointsDisplay value={pending} className="text-2xl font-bold text-amber-500" />
+              <div className="text-2xl font-bold text-amber-500 tabular-nums">
+                {pointsSummary?.pending ?? 0}
+              </div>
             )}
             <p className="text-xs text-muted-foreground mt-1">Awaiting verification</p>
           </CardContent>
@@ -79,7 +81,9 @@ export function Dashboard() {
             {balanceLoading ? (
               <Skeleton className="h-8 w-32" />
             ) : (
-              <PointsDisplay value={spent} className="text-2xl font-bold text-red-500" />
+              <div className="text-2xl font-bold text-red-500 tabular-nums">
+                {pointsSummary?.spent ?? 0}
+              </div>
             )}
             <p className="text-xs text-muted-foreground mt-1">Total spent today</p>
           </CardContent>

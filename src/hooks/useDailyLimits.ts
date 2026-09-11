@@ -6,7 +6,7 @@ import type { DailyLimit } from '@/types'
 export function useDailyLimits() {
   const { data, isLoading, error } = useQuery<DailyLimit>({
     queryKey: queryKeys.limits.daily,
-    queryFn: () => apiClient.getDailyLimits(),
+    queryFn: () => apiClient.getDailyLimits() as Promise<DailyLimit>,
     staleTime: 30 * 1000, // 30 seconds
   })
 

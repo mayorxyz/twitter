@@ -1,4 +1,3 @@
-```
 # Dependencies
 node_modules/
 
@@ -7,59 +6,56 @@ dist/
 build/
 .next/
 .nuxt/
-out/
-
-# Logs
-*.log
+public/dist/
+*.tsbuildinfo
 
 # Environment variables
 .env
 .env.local
 .env.*
+!.env.example
 
-# IDE files
+# IDE specific
 .vscode/
 .idea/
 *.swp
 *.swo
-*.tmp
 
-# Python specific
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-*.so
-.Python
-.pytest_cache/
-.mypy_cache/
+# OS generated
+.DS_Store
+Thumbs.db
 
-# Node specific
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-node_modules/
-jspm_packages/
-typings/
-.nyc_output
+# Logs
+*.log
+
+# Coverage
 coverage/
 .nyc_output/
 istanbul/
-.coverage
-.repl_history
-.tern-port
-.tern-project
-.eslintcache
-.stylelintcache
-.node_repl_history
+*.lcov
 
-# General
-.DS_Store
-Thumbs.db
-```
+# Temporary files
+*.tmp
+*.temp
+.DS_Store*
+._*
+
+# TypeScript
+*.js.map
+*.ts.map
+*.jsx.map
+*.tsx.map
+
+# Next.js
+.next/
+out/
+.cache/
+
+# Vercel
+.vercel/
+
+# ESLint
+eslint-cache/
+
+# Prettier
+prettier-cache/
